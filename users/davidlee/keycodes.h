@@ -21,8 +21,8 @@ enum userspace_keycodes {
 #define FN       KC_F24
 #define SIRI     KC_F21
 
-#define ENC_B1 PROGRAMMABLE_BUTTON_5
-#define ENC_B2 PROGRAMMABLE_BUTTON_6
+#define ENC_B1 QK_PROGRAMMABLE_BUTTON_5
+#define ENC_B2 QK_PROGRAMMABLE_BUTTON_6
 
 // clipboard
 #define UNDO   LCMD(KC_Z)
@@ -71,6 +71,7 @@ enum userspace_keycodes {
 //
 // leftmost column
 #define ESC_MEH  MT(MOD_MEH, KC_ESC)
+#define ESC_CTL  MT(MOD_LCTL, KC_ESC)
 
 #define GRV_HYP  MT(MOD_HYPR, KC_GRV) // better on planck
 #define TAB_HYP  MT(MOD_HYPR, KC_TAB)

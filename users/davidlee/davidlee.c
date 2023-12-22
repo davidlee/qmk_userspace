@@ -268,41 +268,52 @@ void _reset(void) {
   layer_state_set(LAYER_MASK_DEFAULT);
 }
 
-// LEADER KEY stanzas
+// 
+// LEADER KEY - haven't done much with this yet
+// 
 #ifdef LEADER_ENABLE
-LEADER_EXTERNS();
-bool did_leader_succeed;
-void matrix_scan_user(void) {
-  LEADER_DICTIONARY() {
-    did_leader_succeed = leading = false;
 
-    SEQ_TWO_KEYS(KC_L, KC_L) { // Layer: default
-      _reset();
-      did_leader_succeed = true;
-    }
-
-    SEQ_TWO_KEYS(KC_H, KC_E) { // home row mods enable
-      _reset();
-      did_leader_succeed = true;
-    }
-
-    SEQ_TWO_KEYS(KC_H, KC_D) { // home row mods disable
-      default_layer_set(_CMK);
-      layer_state_set(_CMK);
-      did_leader_succeed = true;
-    }
-
-    leader_end();
-  }
-}
-
-void leader_start(void) {
-#ifdef RGB_MATRIX_ENABLE
-  rgb_matrix_mode_noeeprom(RGB_MATRIX_BAND_SPIRAL_VAL);
+#ifdef AUDIO_ENABLE
+float leader_start_song[][2] = SONG(ONE_UP_SOUND);
+float leader_succeed_song[][2] = SONG(ALL_STAR);
+float leader_fail_song[][2] = SONG(RICK_ROLL);
 #endif
-}
 
-void leader_end(void) {
+bool did_leader_succeed;
+void leader_end_user(void) {
+  bool did_leader_succeed = false;
+#ifdef AUDIO_ENABLE
+  PLAY_SONG(leader_start_song);
+#endif
+
+  // Layer: default
+  if(leader_sequence_two_keys(KC_L, KC_L)){
+    _reset();
+    did_leader_succeed = true;
+  }
+
+
+  // (H)ome row (E)nable
+  if(leader_sequence_two_keys(KC_H, KC_E)){
+    _reset();
+    did_leader_succeed = true;
+  }
+
+  // (H)ome row (D)isable
+  if(leader_sequence_two_keys(KC_H, KC_D)){
+    default_layer_set(_CMK);
+    layer_state_set(_CMK);
+    did_leader_succeed = true;
+  }
+
+#ifdef AUDIO_ENABLE
+  if (did_leader_succeed) {
+      PLAY_SONG(leader_succeed_song);
+  } else {
+      PLAY_SONG(leader_fail_song);
+  }
+#endif
+
   if (did_leader_succeed) {
 #ifdef RGB_MATRIX_ENABLE
     rgb_matrix_mode_noeeprom(RGB_MATRIX_ALPHAS_MODS);
@@ -313,4 +324,12 @@ void leader_end(void) {
 #endif
   }
 }
+
+void leader_start_user(void) {
+#ifdef RGB_MATRIX_ENABLE
+  rgb_matrix_mode_noeeprom(RGB_MATRIX_BAND_SPIRAL_VAL);
 #endif
+}
+
+#endif
+// END LEADER KEY
