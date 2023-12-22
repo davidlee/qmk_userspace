@@ -71,7 +71,6 @@ enum userspace_keycodes {
 //
 // leftmost column
 #define ESC_MEH  MT(MOD_MEH, KC_ESC)
-#define ESC_CTL  MT(MOD_LCTL, KC_ESC)
 
 #define GRV_HYP  MT(MOD_HYPR, KC_GRV) // better on planck
 #define TAB_HYP  MT(MOD_HYPR, KC_TAB)
