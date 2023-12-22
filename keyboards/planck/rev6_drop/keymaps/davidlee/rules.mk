@@ -2,4 +2,5 @@ ifeq ($(strip $(AUDIO_ENABLE)), yes)
     SRC += muse.c
 endif
 
-SRC += davidlee.c
+RGBLIGHT_ENABLE = no
+RGB_MATRIX_ENABLE = yes

@@ -1,28 +1,36 @@
 #pragma once
 
+/*
 #ifdef AUDIO_ENABLE
     #define STARTUP_SONG SONG(COLEMAK_SOUND)
-
     #define DEFAULT_LAYER_SONGS { SONG(QWERTY_SOUND), \
                                   SONG(COLEMAK_SOUND) \
                                 }
     #define MUSIC_MASK (keycode != KC_NO)
 #endif
+*/
 
 #define COMBO_COUNT 18
 
 #define TAPPING_TERM 170
 #define TAPPING_TERM_PER_KEY 1
-#define TAPPING_FORCE_HOLD 1       // allows mod tap to resolve to a mod after a tap
+
+// allows mod tap to resolve to a mod after a tap
+#define TAPPING_FORCE_HOLD 1       
 #define TAP_CODE_DELAY 5
-#define PERMISSIVE_HOLD_PER_KEY 1  // we want permissive hold for all tap-hold keys except home row mods
+
+// we want permissive hold for all tap-hold keys except home row mods
+#define PERMISSIVE_HOLD_PER_KEY 1  
 #define QUICK_TAP_TERM_PER_KEY 1
 #define QUICK_TAP_TERM 30
 
 #define COMBO_ALLOW_ACTION_KEYS
 #define COMBO_STRICT_TIMER
-#define COMBO_TERM 20               // time to get all combo keys down - keep it short!
-#define COMBO_HOLD 30               // time to hold to trigger delayed combo
+
+// time to get all combo keys down - keep it short!
+#define COMBO_TERM 20               
+// time to hold to trigger delayed combo
+#define COMBO_HOLD 30               
 
 #define CAPSWORD_USE_SHIFT 1
 #define QMK_KEYS_PER_SCAN 4

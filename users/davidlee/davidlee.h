@@ -1,8 +1,11 @@
 #pragma once
 #include QMK_KEYBOARD_H
 
+/*
 #ifndef USERSPACE
 #define USERSPACE
+#endif
+*/ 
 
 enum userspace_layers {
   _CMK,   // Colemak-DH
