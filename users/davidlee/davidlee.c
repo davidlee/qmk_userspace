@@ -112,11 +112,18 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 void caps_word_set_user(bool active) {
   if (active) {
     rgb_matrix_mode_noeeprom(RGB_MATRIX_ALPHAS_MODS);      
+
+#ifdef AUDIO_ENABLE
+  PLAY_SONG(caps_start_song);
+#endif
   } else {
     // TODO FIXME hax 
     // this should call layer_state_set_user, or 
     // we need to implement layer indications using some other hook
     rgb_matrix_mode_noeeprom(RGB_MATRIX_TYPING_HEATMAP);
+#ifdef AUDIO_ENABLE
+  PLAY_SONG(caps_end_song);
+#endif
   }
 }
 
@@ -269,7 +276,7 @@ void _reset(void) {
 }
 
 // 
-// LEADER KEY - haven't done much with this yet
+// LEADER KEY 
 // 
 #ifdef LEADER_ENABLE
 
@@ -277,6 +284,8 @@ void _reset(void) {
 float leader_start_song[][2] = SONG(ONE_UP_SOUND);
 float leader_succeed_song[][2] = SONG(ALL_STAR);
 float leader_fail_song[][2] = SONG(RICK_ROLL);
+float caps_start_song[][2] = SONG(MAJOR_SOUND);
+float caps_end_song[][2] = SONG(MINOR_SOUND);
 #endif
 
 bool did_leader_succeed;
@@ -290,6 +299,10 @@ void leader_end_user(void) {
   if(leader_sequence_two_keys(KC_L, KC_L)){
     _reset();
     did_leader_succeed = true;
+  }
+
+  if(leader_sequence_two_keys(KC_F, KC_F)) {
+    SEND_STRING("function => {");
   }
 
 

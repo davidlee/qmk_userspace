@@ -79,17 +79,18 @@ enum userspace_keycodes {
 // bottom row
 #define CMD_TAB  MT(MOD_LGUI, KC_TAB)
 #define SPC_NUM  LT(_NUM, KC_SPC)
-#define E_FUN    LT(_FUN, KC_E) // not used to E on thumb yet ...
+#define E_FUN    LT(_FUN, QK_LEADER)  
+#define FUN      MO(_FUN)
 
 #define NAV      MO(_NAV)
-#define BS_SFT   MT(MOD_LSFT, KC_BSPC)
+#define BS_SFT   MT(MOD_RSFT, KC_BSPC)
 #define ENT_MED  LT(_MED, KC_ENTER)
 
 //
 // rightmost column
-#define DEL_MEH  MT(MOD_MEH,  KC_DEL)   // deprecated
-#define QOT_OPT  MT(MOD_RALT, KC_QUOTE) // ^
+#define DEL_MEH  MT(MOD_MEH,  KC_DEL)   
+#define QOT_OPT  MT(MOD_RALT, KC_QUOTE) 
 
-#define DEL_HYP  MT(MOD_HYPR,KC_DEL)
+#define DEL_HYP  MT(MOD_HYPR, KC_DEL)
 #define QOT_MEH  MT(MOD_MEH,  KC_QUOTE)
 #define ENT_SFT  MT(MOD_RSFT, KC_ENTER)
