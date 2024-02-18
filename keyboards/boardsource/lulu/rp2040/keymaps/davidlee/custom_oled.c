@@ -1,6 +1,130 @@
 #include "custom_oled.h"
-
 #ifdef OLED_ENABLE
+
+void display_layer_state(void) {
+  switch (get_highest_layer(layer_state)) {
+    case _CMK:
+    case _GAM:
+      _render_logo();
+      break;
+    case _NUM:
+      _render_layer1_logo();
+      break;
+    case _PTR:
+      _render_layer2_logo();
+      break;
+    case _NAV:
+      _render_layer3_logo();
+      break;
+    case _FUN:
+    case _MED:
+      _render_layer4_logo();
+      break;
+  }
+}
+
+void render_status(void) {
+  led_t led_state = host_keyboard_led_state();
+  uint8_t modifiers = get_mods() | get_oneshot_mods();
+
+  // LAYER
+
+  oled_write_ln_P(PSTR("Layer"), false);
+
+  switch (get_highest_layer(layer_state)) {
+    case _CMK:
+      oled_write_ln_P(PSTR("CMK"), false);
+      break;
+    case _GAM:
+      oled_write_ln_P(PSTR("QTY"), true);
+      break;
+    case _NUM:
+      oled_write_ln_P(PSTR("NUM"), true);
+      break;
+    case _PTR:
+      oled_write_ln_P(PSTR("PTR"), true);
+      break;
+    case _NAV:
+      oled_write_ln_P(PSTR("NAV"), true);
+      break;
+    case _FUN:
+      oled_write_ln_P(PSTR("FUN"), true);
+      break;
+    case _MED:
+      oled_write_ln_P(PSTR("MED"), true);
+      break;
+     break;
+  }
+
+  // HRM
+
+  if(layer_state_cmp(layer_state, _HRM)){
+      oled_write_ln_P(PSTR("HRM"), true);
+  } else {
+      oled_write_ln_P(PSTR("   "), false);
+  }
+  
+  // MODS
+
+  oled_write_ln_P(PSTR("      "), false);
+  oled_write_ln_P(PSTR("Mods: "), false);
+
+  if(modifiers & MOD_MASK_CTRL) {
+    oled_write_ln_P(PSTR("CTRL"), false);
+  } else {    
+    oled_write_ln_P(PSTR("    "), false);
+  };
+  
+  if(modifiers & MOD_MASK_ALT) {
+    oled_write_ln_P(PSTR("OPT"), false);
+  } else {    
+    oled_write_ln_P(PSTR("   "), false);
+  };
+
+  if(modifiers & MOD_MASK_GUI) {
+    oled_write_ln_P(PSTR("CMD"), false);
+  } else {    
+    oled_write_ln_P(PSTR("   "), false);
+  };
+
+  if(modifiers & MOD_MASK_SHIFT) {
+    oled_write_ln_P(PSTR("SHIFT"), false);
+  } else {    
+    oled_write_ln_P(PSTR("     "), false);
+  };
+
+  // CAPS LOCK
+
+  if(led_state.caps_lock) {
+    oled_write_ln_P(PSTR("CAPS"), true);
+  } else {
+    
+    oled_write_ln_P(PSTR("         "), false);
+  }
+  
+    
+    oled_render_dirty(true);
+}
+
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+    if (!is_keyboard_master()) {
+        return OLED_ROTATION_270;  // flips the display 180 degrees if offhand
+    }
+
+    return rotation;
+}
+
+bool oled_task_user(void) {
+    if (is_keyboard_master()) {
+        display_layer_state();  // Renders the current keyboard state (layer, lock, caps, scroll, etc)
+    } else {
+        render_status();
+        // render_logo();  // Renders a static logo
+        // oled_scroll_left();  // Turns on scrolling
+    }
+    return false;
+}
+
 
 void _render_layer1_logo(void){
     static const char PROGMEM layer_logo[] = {
@@ -191,5 +315,5 @@ void _render_logo(void) {
     };
     oled_write_raw_P(logo, sizeof(logo));
 }
-
 #endif
+

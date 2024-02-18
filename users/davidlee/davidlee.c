@@ -86,15 +86,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
       case N_SFT:
         return TAPPING_TERM + 30;
 
-      // bottom row mods 
-      // case Z_CTL:
-      // case X_OPT:
-      // case C_CMD:
-      // case SLS_CTL:
-      // case DOT_OPT:
-      // case COM_CMD:
-        // return TAPPING_TERM + 20; // doesn't matter as much due to permissive_hold
-
       default:
         return TAPPING_TERM;
     }
@@ -134,6 +125,7 @@ void caps_word_set_user(bool active) {
 // }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
+  
   // CAPS LOCK / CAPS WORD indication
   // without this, activation via a momentary layer (vs say, a combo) 
   // will have its indication cancelled when layer changes back ...
@@ -206,8 +198,6 @@ __attribute__ ((weak))
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
-
-// static uint16_t fun_ptr_timeout = 0;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
