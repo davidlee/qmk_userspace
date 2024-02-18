@@ -6,6 +6,7 @@
 #ifdef AUDIO_ENABLE
   float blip_song[][2] = SONG(BLIP);
   float arp_song[][2]  = SONG(ARP);
+  float mario_song[][2] = SONG(MARIO_MUSHROOM);
 #endif
 
 #define LAYER_MASK_DEFAULT (1 << _CMK | 1 << _HRM)
@@ -114,7 +115,7 @@ void caps_word_set_user(bool active) {
     rgb_matrix_mode_noeeprom(RGB_MATRIX_ALPHAS_MODS);      
 
 #ifdef AUDIO_ENABLE
-  PLAY_SONG(caps_start_song);
+  PLAY_SONG(mario_song);
 #endif
   } else {
     // TODO FIXME hax 
@@ -122,7 +123,7 @@ void caps_word_set_user(bool active) {
     // we need to implement layer indications using some other hook
     rgb_matrix_mode_noeeprom(RGB_MATRIX_TYPING_HEATMAP);
 #ifdef AUDIO_ENABLE
-  PLAY_SONG(caps_end_song);
+  PLAY_SONG(arp_song);
 #endif
   }
 }

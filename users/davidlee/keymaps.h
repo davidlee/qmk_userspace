@@ -38,7 +38,7 @@
 #define __FUN_R1   _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______
 #define __FUN_R2   FN,      KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  _______, KC_LSFT, KC_RGUI, KC_RALT, KC_RCTL, FN
 #define __FUN_R3   KC_CAPS, UNDO,    CUT,     COPY,    PASTE,   PASTE,   KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  _______
-#define __FUN_R4   _______, _______, _______, GAM_LCK, _______, _______, MO_PTR,  _______, _______, _______, _______, _______
+#define __FUN_R4   _______, _______, _______, GAM_LCK, KC_SPC,  _______, MO_PTR,  _______, _______, _______, _______, _______
 
 #define __MED_R0 __BLANKS
 #define __MED_R1   _______, _______, _______, KC_MSTP, KC_MPLY, _______, _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______
