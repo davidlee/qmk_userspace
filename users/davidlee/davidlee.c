@@ -45,25 +45,15 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
 
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    // case BS_SFT:
-
     case A_CTL:
     case R_OPT:
     case S_CMD:
     case T_SFT:
-  
+ 
     case O_CTL:
     case I_OPT:
     case E_CMD:
     case N_SFT:
-
-    // case Z_CTL:
-    // case X_OPT:
-    // case C_CMD:
-
-    // case SLS_CTL:
-    // case DOT_OPT:
-    // case COM_CMD:
       return false;
     default:
       return true;
@@ -85,7 +75,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
       case T_SFT:
       case N_SFT:
         return TAPPING_TERM + 30;
-
       default:
         return TAPPING_TERM;
     }
