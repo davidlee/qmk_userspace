@@ -13,13 +13,13 @@
 #define __CMK_R1   TAB_HYP, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, DEL_HYP
 #define __CMK_R1B  GRV_HYP, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, DEL_HYP
 #define __CMK_R2   ESC_MEH, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,    KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    QOT_MEH
-#define __CMK_R3   KC_LSFT, Z_CTL,   X_OPT,   C_CMD,   KC_D,    KC_V,    KC_K,    KC_H,    COM_CMD, DOT_OPT, SLS_CTL, ENT_SFT
+#define __CMK_R3   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, ENT_SFT
 #define __CMK_R4   FUN,     KC_LCTL, KC_LOPT, CMD_TAB, SPC_NUM, MO_PTR,  NAV,     BS_SFT,  ENT_MED, _______, PTR_LCK, QK_LEAD
 
 #define __HRM_R0 __BLANKS
 #define __HRM_R1 __BLANKS
 #define __HRM_R2   _______, A_CTL,   R_OPT,   S_CMD,   T_SFT,   _______, _______, N_SFT,   E_CMD,   I_OPT,   O_CTL,   _______
-#define __HRM_R3 __BLANKS
+#define __HRM_R3   _______, Z_CTL,   X_OPT,   C_CMD,   _______, _______, _______, _______, COM_CMD, DOT_OPT, SLS_CTL, _______
 #define __HRM_R4 __BLANKS
 
 #define __NUM_R0 __BLANKS

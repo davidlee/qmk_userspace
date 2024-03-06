@@ -11,6 +11,7 @@ enum userspace_keycodes {
   DEL_WORD,
   HRM_ON,  // ALPHA TAP / HOLD
   HRM_OFF,
+  MO_NUM,
 };
 
 //

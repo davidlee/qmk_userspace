@@ -245,6 +245,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         tap_code16(LOPT(KC_DELETE));
       }
       return false;
+
+    case MO_NUM:
+      if (record->event.pressed) {
+          layer_on(_NUM);
+      } else {
+          layer_off(_NUM);
+    }
     default:
       return true; /* Process all other keycodes normally */
   }

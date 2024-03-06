@@ -12,7 +12,7 @@
 #define LEADER_PER_KEY_TIMING
 #define LEADER_TIMEOUT 300
 
-#define COMBO_COUNT 18
+#define COMBO_COUNT 15
 
 #define TAPPING_TERM 170
 #define TAPPING_TERM_PER_KEY 
@@ -33,6 +33,7 @@
 #define COMBO_TERM 20               
 // time to hold to trigger delayed combo
 #define COMBO_HOLD 30               
+#define COMBO_ONLY_FROM_LAYER 0
 
 #define CAPSWORD_USE_SHIFT 
 #define CAPS_WORD_IDLE_TIMEOUT 500  
