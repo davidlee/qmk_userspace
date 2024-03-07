@@ -11,7 +11,7 @@
 
 #define LAYER_MASK_DEFAULT (1 << _CMK | 1 << _HRM)
 
-const int home_row_mod_keys[] = { A_CTL, R_OPT, S_CMD, T_SFT, N_SFT, E_CMD, I_OPT, O_CTL};
+// const int home_row_mod_keys[] = { A_CTL, R_OPT, S_CMD, T_SFT, N_SFT, E_CMD, I_OPT, O_CTL};
 
 //
 // Function Overrides
@@ -75,6 +75,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
       case T_SFT:
       case N_SFT:
         return TAPPING_TERM + 30;
+      // 
       default:
         return TAPPING_TERM;
     }
@@ -246,12 +247,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
 
-    case MO_NUM:
-      if (record->event.pressed) {
-          layer_on(_NUM);
-      } else {
-          layer_off(_NUM);
-    }
     default:
       return true; /* Process all other keycodes normally */
   }

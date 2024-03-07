@@ -39,7 +39,6 @@ enum userspace_keycodes {
 #define CMD_MINS LCMD(KC_MINS)
 #define CMD_EQL  LCMD(KC_EQL)
 
-#define MO_PTR  MO(_PTR)
 #define OSL_FUN OSL(_FUN)
 #define OSL_GRT OSL(_GRT)
 
@@ -80,7 +79,7 @@ enum userspace_keycodes {
 // bottom row
 #define CMD_TAB  MT(MOD_LGUI, KC_TAB)
 #define SPC_NUM  LT(_NUM, KC_SPC)
-#define E_FUN    LT(_FUN, QK_LEADER)  
+#define ESC_PTR  MO(_PTR)
 #define FUN      MO(_FUN)
 
 #define NAV      MO(_NAV)
