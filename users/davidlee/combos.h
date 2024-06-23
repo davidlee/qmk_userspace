@@ -21,26 +21,34 @@ const uint16_t PROGMEM combo_lbrc[]      = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM combo_rbrc[]      = {KC_C, KC_D, COMBO_END};
 
 // N + S = backspace word
-const uint16_t PROGMEM combo_bs_word[]  = {KC_N,  KC_E,  COMBO_END};
+const uint16_t PROGMEM combo_bs_word[]   = {KC_N,  KC_E,  COMBO_END};
 
 // I + O = delete word
-const uint16_t PROGMEM combo_del_word[] = {KC_I,  KC_O,  COMBO_END};
+const uint16_t PROGMEM combo_del_word[]  = {KC_I,  KC_O,  COMBO_END};
 
 // A + R = caps word
-const uint16_t PROGMEM combo_caps_word[]= {KC_A, KC_R,   COMBO_END};
+const uint16_t PROGMEM combo_caps_word[] = {KC_A, KC_R,   COMBO_END};
 
 // N + U = turn on PTR layer
-const uint16_t PROGMEM combo_ptr[]      = {KC_N,  KC_U, COMBO_END};
+const uint16_t PROGMEM combo_ptr[]       = {KC_N,  KC_U, COMBO_END};
 
 // BOOT MODE -> PINKIES UP!
-const uint16_t PROGMEM combo_boot[] = {KC_Q, KC_SCLN, COMBO_END};
+const uint16_t PROGMEM combo_boot[]      = {KC_Q, KC_SCLN, COMBO_END};
 
+// TWO THUMBS IN SYNC = SYMBOLS
+const uint16_t PROGMEM combo_symbols[]   = {SPC_NUM, BS_SFT, COMBO_END};
+const uint16_t PROGMEM combo_symbols2[]  = {KC_Y, KC_SCLN, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
+  COMBO(combo_boot,       QK_BOOT),
+  COMBO(combo_symbols,    MO_SYM),
+  COMBO(combo_symbols2,   MO_SYM),
+  
   COMBO(combo_lcmd,       KC_LGUI),
   COMBO(combo_rcmd,       KC_RGUI),
-  COMBO(combo_lcmd,       KC_LCMD),
-  COMBO(combo_rcmd,       KC_RCMD),
+  COMBO(combo_lcmd2,      KC_LCMD),
+  COMBO(combo_rcmd2,      KC_RCMD),
+
   COMBO(combo_lbrc,       KC_LBRC),
   COMBO(combo_rbrc,       KC_RBRC),
   COMBO(combo_lprn,       KC_LPRN),
@@ -50,7 +58,5 @@ combo_t key_combos[COMBO_COUNT] = {
   COMBO(combo_del_word,   DEL_WORD),
   COMBO(combo_caps_word,  CAP_WRD),
   COMBO(combo_ptr,        PTR_LCK),
-
-  COMBO(combo_boot, QK_BOOT),
 
 };

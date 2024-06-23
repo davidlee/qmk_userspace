@@ -1,18 +1,9 @@
 #pragma once
 
-/*
-#ifdef AUDIO_ENABLE
-    #define STARTUP_SONG SONG(COLEMAK_SOUND)
-    #define DEFAULT_LAYER_SONGS { SONG(QWERTY_SOUND), \
-                                  SONG(COLEMAK_SOUND) \
-                                }
-    #define MUSIC_MASK (keycode != KC_NO)
-#endif
-*/
 #define LEADER_PER_KEY_TIMING
 #define LEADER_TIMEOUT 300
 
-#define COMBO_COUNT 16
+#define COMBO_COUNT 15
 
 #define TAPPING_TERM 170
 #define TAPPING_TERM_PER_KEY 

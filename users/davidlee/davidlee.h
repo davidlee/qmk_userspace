@@ -1,12 +1,6 @@
 #pragma once
 #include QMK_KEYBOARD_H
 
-/*
-#ifndef USERSPACE
-#define USERSPACE
-#endif
-*/ 
-
 enum userspace_layers {
   _CMK,   // Colemak-DH
   _HRM,   // Home Row Mods / alpha hold-taps
@@ -17,6 +11,7 @@ enum userspace_layers {
   _NAV,   // Navigation
   _FUN,   // Function keys
   _MED,   // Media & right hand mods
+  _SYM,   // Dedicated symbol layer 
 };
 
 #ifdef AUDIO_ENABLE

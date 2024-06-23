@@ -65,6 +65,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     __PTR_R4
   ), 
 
+  [_SYM] = LAYOUT_planck_wrapper(
+    __SYM_R1,
+    __SYM_R2,
+    __SYM_R3,
+    __SYM_R4
+  ), 
+
 };
 
 

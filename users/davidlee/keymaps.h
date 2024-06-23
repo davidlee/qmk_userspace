@@ -18,7 +18,6 @@
 
 #define __HRM_R0 __BLANKS
 #define __HRM_R1 __BLANKS
-// #define __HRM_R2   _______, A_CTL,   R_OPT,   S_CMD,   T_SFT,   _______, _______, N_SFT,   E_CMD,   I_OPT,   O_CTL,   _______
 #define __HRM_R2   _______, A_CTL,   R_OPT,   _______, _______, _______, _______, _______, _______, I_OPT,   O_CTL,   _______
 #define __HRM_R3   _______, _______, _______, C_CMD,   _______, _______, _______, _______, COM_CMD, _______, _______, _______
 #define __HRM_R4 __BLANKS
@@ -59,4 +58,9 @@
 #define __GAM_R3   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT
 #define __GAM_R4   EXT_GAM, KC_LCTL, KC_LGUI, KC_LALT, KC_SPC,  KC_LCTL, EXT_GAM, KC_BSPC, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 
+#define __SYM_R0   KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN
+#define __SYM_R1   KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN
+#define __SYM_R2   KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN
+#define __SYM_R3   KC_SCLN, KC_0,    KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN
+#define __SYM_R4   KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN, KC_SCLN
 // clang-format on

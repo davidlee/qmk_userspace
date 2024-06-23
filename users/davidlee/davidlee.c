@@ -127,6 +127,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
   switch (get_highest_layer(state)) {
     case _NUM:
+    case _SYM:
       rgb_matrix_mode_noeeprom(RGB_MATRIX_ALPHAS_MODS);
       break;
     case _NAV:
@@ -174,6 +175,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
       break;
     case _GAM:
       rgblight_sethsv_noeeprom (0x99,  0x44, 0x33);
+      break;
+    case _SYM:
+      rgblight_sethsv_noeeprom (0x00,  0xEE, 0x55);
       break;
     case _CMK:
     default:
@@ -244,6 +248,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case DEL_WORD:
       if (record->event.pressed) {
         tap_code16(LOPT(KC_DELETE));
+      }
+      return false;
+
+    case MO_SYM:
+        #ifdef AUDIO_ENABLE
+          PLAY_SONG(blip_song);
+        #endif
+      if (record->event.pressed) {
+        layer_on(_SYM);
+      } else {
+        layer_off(_SYM);
       }
       return false;
 
