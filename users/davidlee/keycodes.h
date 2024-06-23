@@ -39,24 +39,27 @@ enum userspace_keycodes {
 #define CMD_MINS LCMD(KC_MINS)
 #define CMD_EQL  LCMD(KC_EQL)
 
-#define OSL_FUN OSL(_FUN)
-#define OSL_GRT OSL(_GRT)
+#define MO_PTR MO(_PTR)
+#define ENT_PTR LT(_PTR, KC_ENTER)
 
 // alpha hold-tap keys
 //
-// home row mods
-#define A_CTL  MT(MOD_LCTL, KC_A)
-#define R_OPT  MT(MOD_LALT, KC_R)
-#define S_CMD  MT(MOD_LGUI, KC_S)
-#define T_SFT  MT(MOD_LSFT, KC_T)
 
-#define N_SFT  MT(MOD_RSFT, KC_N)
-#define E_CMD  MT(MOD_RGUI, KC_E)
-#define I_OPT  MT(MOD_LALT, KC_I)
-#define O_CTL  MT(MOD_RCTL, KC_O)
-//
+// HRM - Gallium
+
+#define N_CTL  MT(MOD_LCTL, KC_N)
+#define R_OPT  MT(MOD_LALT, KC_R)
+#define T_CMD  MT(MOD_LGUI, KC_T)
+#define S_SFT  MT(MOD_LSFT, KC_S)
+
+#define H_SFT  MT(MOD_RSFT, KC_H)
+#define A_CMD  MT(MOD_RGUI, KC_A)
+#define E_OPT  MT(MOD_LALT, KC_E)
+#define I_CTL  MT(MOD_RCTL, KC_I)
+
 // right hand side mods
 #define SLS_CTL MT(MOD_RCTL, KC_SLASH)
+#define SLS_MEH MT(MOD_MEH, KC_SLASH)
 #define DOT_OPT MT(MOD_RALT, KC_DOT)
 #define COM_CMD MT(MOD_RGUI, KC_COMMA)
 
@@ -79,12 +82,12 @@ enum userspace_keycodes {
 // bottom row
 #define CMD_TAB  MT(MOD_LGUI, KC_TAB)
 #define SPC_NUM  LT(_NUM, KC_SPC)
-#define ESC_PTR  MO(_PTR)
-#define FUN      MO(_FUN)
+#define ESC_PTR  LT(_PTR, ESC)
+// #define FUN      MO(_FUN)
 
 #define NAV      MO(_NAV)
 #define BS_SFT   MT(MOD_RSFT, KC_BSPC)
-#define ENT_MED  LT(_MED, KC_ENTER)
+// #define ENT_MED  LT(_MED, KC_ENTER)
 
 //
 // rightmost column

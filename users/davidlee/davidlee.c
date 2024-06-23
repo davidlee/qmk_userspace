@@ -9,7 +9,7 @@
   float mario_song[][2] = SONG(MARIO_MUSHROOM);
 #endif
 
-#define LAYER_MASK_DEFAULT (1 << _CMK | 1 << _HRM)
+#define LAYER_MASK_DEFAULT (1 << _GAL | 1 << _HRM)
 
 // const int home_row_mod_keys[] = { A_CTL, R_OPT, S_CMD, T_SFT, N_SFT, E_CMD, I_OPT, O_CTL};
 
@@ -45,35 +45,33 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
 
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case A_CTL:
+    case N_CTL: 
     case R_OPT:
-    case S_CMD:
-    case T_SFT:
- 
-    case O_CTL:
-    case I_OPT:
-    case E_CMD:
-    case N_SFT:
+    case T_CMD:
+    case S_SFT:
+    case H_SFT:
+    case A_CMD:
+    case E_OPT:
+    case I_CTL:
       return false;
-    default:
+      default:
       return true;
   }
 }
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-      // home row mods
-      case A_CTL:
-      case O_CTL:
+      case N_CTL:
+      case I_CTL:
         return TAPPING_TERM + 40;
+      case E_OPT:
       case R_OPT:
-      case I_OPT:
-        return TAPPING_TERM + 40; // lazy ring fingers are the biggest culprit for misfires
-      case S_CMD:
-      case E_CMD:
+        return TAPPING_TERM + 40; 
+      case T_CMD:
+      case A_CMD:
         return TAPPING_TERM + 40;
-      case T_SFT:
-      case N_SFT:
+      case S_SFT:
+      case H_SFT:
         return TAPPING_TERM + 30;
       // 
       default:
@@ -127,25 +125,16 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
   switch (get_highest_layer(state)) {
     case _NUM:
-    case _SYM:
-      rgb_matrix_mode_noeeprom(RGB_MATRIX_ALPHAS_MODS);
-      break;
     case _NAV:
       rgb_matrix_mode_noeeprom(RGB_MATRIX_CYCLE_OUT_IN_DUAL);
       break;
     case _PTR:
       rgb_matrix_mode_noeeprom(RGB_MATRIX_CYCLE_ALL);
       break;
-    case _FUN:
-      rgb_matrix_mode_noeeprom(RGB_MATRIX_RAINBOW_MOVING_CHEVRON);
-      break;
-    case _MED:
-      rgb_matrix_mode_noeeprom(RGB_MATRIX_CYCLE_OUT_IN_DUAL);
-      break;
     case _GAM:
       rgb_matrix_mode_noeeprom(RGB_MATRIX_BREATHING);
       break;
-    case _CMK:
+    case _GAL:
     default:
       rgb_matrix_mode_noeeprom(RGB_MATRIX_TYPING_HEATMAP);
       break;
@@ -167,19 +156,10 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     case _PTR:
       rgblight_sethsv_noeeprom (0x33,  0xFF, 0xAA);
       break;
-    case _FUN:
-      rgblight_sethsv_noeeprom (0x00,  0x00, 0xEE);
-      break;
-    case _MED:
-      rgblight_sethsv_noeeprom (0x00,  0xAA, 0xFF);
-      break;
     case _GAM:
       rgblight_sethsv_noeeprom (0x99,  0x44, 0x33);
       break;
-    case _SYM:
-      rgblight_sethsv_noeeprom (0x00,  0xEE, 0x55);
-      break;
-    case _CMK:
+    case _GAL:
     default:
       rgblight_sethsv_noeeprom (0x00,  0x02, 0x01);
       break;
@@ -251,16 +231,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
 
-    case MO_SYM:
-        #ifdef AUDIO_ENABLE
-          PLAY_SONG(blip_song);
-        #endif
-      if (record->event.pressed) {
-        layer_on(_SYM);
-      } else {
-        layer_off(_SYM);
-      }
-      return false;
+    // case MO_SYM:
+    //     #ifdef AUDIO_ENABLE
+    //       PLAY_SONG(blip_song);
+    //     #endif
+    //   if (record->event.pressed) {
+    //     layer_on(_SYM);
+    //   } else {
+    //     layer_off(_SYM);
+    //   }
+    //   return false;
 
     default:
       return true; /* Process all other keycodes normally */
@@ -311,8 +291,8 @@ void leader_end_user(void) {
 
   // (H)ome row (D)isable
   if(leader_sequence_two_keys(KC_H, KC_D)){
-    default_layer_set(_CMK);
-    layer_state_set(_CMK);
+    default_layer_set(_GAL);
+    layer_state_set(_GAL);
     did_leader_succeed = true;
   }
 

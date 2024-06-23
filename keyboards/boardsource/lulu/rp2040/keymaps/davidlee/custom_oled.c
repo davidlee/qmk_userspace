@@ -3,7 +3,7 @@
 
 void display_layer_state(void) {
   switch (get_highest_layer(layer_state)) {
-    case _CMK:
+    case _GAL:
     case _GAM:
       _render_logo();
       break;
@@ -16,10 +16,10 @@ void display_layer_state(void) {
     case _NAV:
       _render_layer3_logo();
       break;
-    case _FUN:
-    case _MED:
-      _render_layer4_logo();
-      break;
+    // case _FUN:
+    // case _MED:
+    //   _render_layer4_logo();
+    //   break;
   }
 }
 
@@ -32,7 +32,7 @@ void render_status(void) {
   oled_write_ln_P(PSTR("Layer"), false);
 
   switch (get_highest_layer(layer_state)) {
-    case _CMK:
+    case _GAL:
       oled_write_ln_P(PSTR("CMK"), false);
       break;
     case _GAM:
@@ -47,12 +47,12 @@ void render_status(void) {
     case _NAV:
       oled_write_ln_P(PSTR("NAV"), true);
       break;
-    case _FUN:
-      oled_write_ln_P(PSTR("FUN"), true);
-      break;
-    case _MED:
-      oled_write_ln_P(PSTR("MED"), true);
-      break;
+    // case _FUN:
+    //   oled_write_ln_P(PSTR("FUN"), true);
+    //   break;
+    // case _MED:
+    //   oled_write_ln_P(PSTR("MED"), true);
+      // break;
      break;
   }
 
