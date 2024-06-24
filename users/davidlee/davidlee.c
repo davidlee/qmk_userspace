@@ -1,6 +1,5 @@
 #include "davidlee.h"
 #include "keycodes.h"
-#include "keymaps.h"
 #include "combos.h"
 
 #define LAYER_MASK_DEFAULT (1 << _GAL | 1 << _HRM)
@@ -105,12 +104,12 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     case _NAV:
       rgb_matrix_mode_noeeprom(RGB_MATRIX_CYCLE_OUT_IN_DUAL);
       break;
-    case _PTR:
-      rgb_matrix_mode_noeeprom(RGB_MATRIX_CYCLE_ALL);
-      break;
-    case _GAM:
-      rgb_matrix_mode_noeeprom(RGB_MATRIX_BREATHING);
-      break;
+    // case _PTR:
+    //   rgb_matrix_mode_noeeprom(RGB_MATRIX_CYCLE_ALL);
+    //   break;
+    // case _GAM:
+    //   rgb_matrix_mode_noeeprom(RGB_MATRIX_BREATHING);
+    //   break;
     case _GAL:
     default:
       rgb_matrix_mode_noeeprom(RGB_MATRIX_TYPING_HEATMAP);
@@ -127,33 +126,33 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case GAM_LCK:
-      layer_on(_GAM);
-      #ifdef AUDIO_ENABLE
-        PLAY_SONG(arp_song);
-      #endif
-      return false;
+    // case GAM_LCK:
+    //   layer_on(_GAM);
+    //   #ifdef AUDIO_ENABLE
+    //     PLAY_SONG(arp_song);
+    //   #endif
+    //   return false;
 
-    case PTR_LCK:
-      layer_on(_PTR);
-      rgb_matrix_mode_noeeprom(RGB_MATRIX_ALPHAS_MODS);
-      return false;
+    // case PTR_LCK:
+    //   layer_on(_PTR);
+    //   rgb_matrix_mode_noeeprom(RGB_MATRIX_ALPHAS_MODS);
+    //   return false;
 
-    // EXIT LAYERS
+    // // EXIT LAYERS
 
-    case EXT_GAM:
-      layer_off(_GAM);
-      #ifdef AUDIO_ENABLE
-        PLAY_SONG(arp_song);
-      #endif
-      return false;
+    // case EXT_GAM:
+    //   layer_off(_GAM);
+    //   #ifdef AUDIO_ENABLE
+    //     PLAY_SONG(arp_song);
+    //   #endif
+    //   return false;
 
-    case EXT_PTR:
-      layer_off(_PTR);
-      #ifdef AUDIO_ENABLE
-        PLAY_SONG(blip_song);
-      #endif
-      return false;
+    // case EXT_PTR:
+    //   layer_off(_PTR);
+    //   #ifdef AUDIO_ENABLE
+    //     PLAY_SONG(blip_song);
+    //   #endif
+    //   return false;
 
     // other functions
 

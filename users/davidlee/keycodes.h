@@ -3,15 +3,10 @@
 
 enum userspace_keycodes {
   CAP_WRD = QK_USER, //SAFE_RANGE, // NEW_SAFE_RANGE
-  PTR_LCK,
-  GAM_LCK,
-  EXT_PTR,
-  EXT_GAM,
   BS_WORD,
   DEL_WORD,
   HRM_ON,  // ALPHA TAP / HOLD
   HRM_OFF,
-  MO_SYM,
 };
 
 //
@@ -26,10 +21,10 @@ enum userspace_keycodes {
 #define ENC_B2 QK_PROGRAMMABLE_BUTTON_6
 
 // clipboard
-#define UNDO   LCMD(KC_Z)
-#define CUT    LCMD(KC_X)
-#define COPY   LCMD(KC_C)
-#define PASTE  LCMD(KC_V)
+// #define UNDO   LCMD(KC_Z)
+// #define CUT    LCMD(KC_X)
+// #define COPY   LCMD(KC_C)
+// #define PASTE  LCMD(KC_V)
 
 // misc
 #define EM_DASH LOPT(KC_UNDERSCORE)
@@ -39,8 +34,8 @@ enum userspace_keycodes {
 #define CMD_MINS LCMD(KC_MINS)
 #define CMD_EQL  LCMD(KC_EQL)
 
-#define MO_PTR MO(_PTR)
-#define ENT_PTR LT(_PTR, KC_ENTER)
+// #define MO_PTR MO(_PTR)
+// #define ENT_PTR LT(_PTR, KC_ENTER)
 
 // alpha hold-tap keys
 //
@@ -58,16 +53,16 @@ enum userspace_keycodes {
 #define I_CTL  MT(MOD_RCTL, KC_I)
 
 // right hand side mods
-#define SLS_CTL MT(MOD_RCTL, KC_SLASH)
+// #define SLS_CTL MT(MOD_RCTL, KC_SLASH)
 #define SLS_MEH MT(MOD_MEH, KC_SLASH)
-#define DOT_OPT MT(MOD_RALT, KC_DOT)
-#define COM_CMD MT(MOD_RGUI, KC_COMMA)
+// #define DOT_OPT MT(MOD_RALT, KC_DOT)
+// #define COM_CMD MT(MOD_RGUI, KC_COMMA)
 
 //
 // left hand side mods
-#define Z_CTL MT(MOD_RCTL, KC_Z)
-#define X_OPT MT(MOD_RALT, KC_X)
-#define C_CMD MT(MOD_RGUI, KC_C)
+// #define Z_CTL MT(MOD_RCTL, KC_Z)
+// #define X_OPT MT(MOD_RALT, KC_X)
+// #define C_CMD MT(MOD_RGUI, KC_C)
 
 
 // non-alpha / outer dual-function keys
@@ -82,7 +77,7 @@ enum userspace_keycodes {
 // bottom row
 #define CMD_TAB  MT(MOD_LGUI, KC_TAB)
 #define SPC_NUM  LT(_NUM, KC_SPC)
-#define ESC_PTR  LT(_PTR, ESC)
+// #define ESC_PTR  LT(_PTR, ESC)
 // #define FUN      MO(_FUN)
 
 #define NAV      MO(_NAV)
@@ -92,8 +87,8 @@ enum userspace_keycodes {
 //
 // rightmost column
 #define DEL_MEH  MT(MOD_MEH,  KC_DEL)   
-#define QOT_OPT  MT(MOD_RALT, KC_QUOTE) 
+// #define QOT_OPT  MT(MOD_RALT, KC_QUOTE) 
 
 #define DEL_HYP  MT(MOD_HYPR, KC_DEL)
-#define QOT_MEH  MT(MOD_MEH,  KC_QUOTE)
+// #define QOT_MEH  MT(MOD_MEH,  KC_QUOTE)
 #define ENT_SFT  MT(MOD_RSFT, KC_ENTER)
