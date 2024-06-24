@@ -14,10 +14,5 @@ enum userspace_layers {
   // _SYM,   // Dedicated symbol layer 
 };
 
-#ifdef AUDIO_ENABLE
-  #define BLIP  SD_NOTE(_C0), SD_NOTE(_C1), TD_NOTE(_C3)
-  #define ARP   ED_NOTE(_C1), ED_NOTE(_DS1), ED_NOTE(_G1),  ED_NOTE(_C2), ED_NOTE(_DS2), ED_NOTE(_G2),  ED_NOTE(_C3), ED_NOTE(_G3), ED_NOTE(_C3), ED_NOTE(_G2), ED_NOTE(_DS2), ED_NOTE(_C2)
-#endif
-
 void _reset(void);
 bool _is_caps_lock_on(void);

@@ -3,15 +3,7 @@
 #include "keymaps.h"
 #include "combos.h"
 
-#ifdef AUDIO_ENABLE
-  float blip_song[][2] = SONG(BLIP);
-  float arp_song[][2]  = SONG(ARP);
-  float mario_song[][2] = SONG(MARIO_MUSHROOM);
-#endif
-
 #define LAYER_MASK_DEFAULT (1 << _GAL | 1 << _HRM)
-
-// const int home_row_mod_keys[] = { A_CTL, R_OPT, S_CMD, T_SFT, N_SFT, E_CMD, I_OPT, O_CTL};
 
 //
 // Function Overrides
@@ -20,15 +12,7 @@
 void keyboard_post_init_user(void) {
   default_layer_set(LAYER_MASK_DEFAULT); // COLEMAK & ALPHA TAP/HOLD layers
   oneshot_enable(); // should not be necessary but ... weird bug
-#ifdef RGBLIGHT_ENABLE
-  rgblight_enable();
-  // rgblight_setrgb_noeeprom (0x01,  0x00, 0x00);
-  rgblight_sethsv_noeeprom (0x01,  0x00, 0x00);
-#endif
-
-#ifdef RGB_MATRIX_ENABLE
   rgb_matrix_mode(RGB_MATRIX_TYPING_HEATMAP);
-#endif
 }
 
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
@@ -80,7 +64,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 }
 
 
-#ifdef RGB_MATRIX_ENABLE
 // TODO:
 //
 // 1. extract mapping of layer state => RGB MATRIX mode for use in layer_state_set_user
@@ -93,17 +76,11 @@ void caps_word_set_user(bool active) {
   if (active) {
     rgb_matrix_mode_noeeprom(RGB_MATRIX_ALPHAS_MODS);      
 
-#ifdef AUDIO_ENABLE
-  PLAY_SONG(mario_song);
-#endif
   } else {
     // TODO FIXME hax 
     // this should call layer_state_set_user, or 
     // we need to implement layer indications using some other hook
     rgb_matrix_mode_noeeprom(RGB_MATRIX_TYPING_HEATMAP);
-#ifdef AUDIO_ENABLE
-  PLAY_SONG(arp_song);
-#endif
   }
 }
 
@@ -142,31 +119,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   
   return state;
 }
-#endif
-
-#ifdef RGBLIGHT_ENABLE
-layer_state_t layer_state_set_user(layer_state_t state) {
-  switch (get_highest_layer(state)) {
-    case _NUM:
-      rgblight_sethsv_noeeprom (0x55,  0x7A, 0xFF);
-      break;
-    case _NAV:
-      rgblight_sethsv_noeeprom (0x77,  0xFF, 0x00);
-      break;
-    case _PTR:
-      rgblight_sethsv_noeeprom (0x33,  0xFF, 0xAA);
-      break;
-    case _GAM:
-      rgblight_sethsv_noeeprom (0x99,  0x44, 0x33);
-      break;
-    case _GAL:
-    default:
-      rgblight_sethsv_noeeprom (0x00,  0x02, 0x01);
-      break;
-  }
-  return state;
-}
-#endif
 
 __attribute__ ((weak))
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
@@ -184,12 +136,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case PTR_LCK:
       layer_on(_PTR);
-      // #ifdef RGB_MATRIX_ENABLE
-      //   rgb_matrix_mode_noeeprom(RGB_MATRIX_ALPHAS_MODS);
-      // #endif
-      #ifdef AUDIO_ENABLE
-        PLAY_SONG(arp_song);
-      #endif
+      rgb_matrix_mode_noeeprom(RGB_MATRIX_ALPHAS_MODS);
       return false;
 
     // EXIT LAYERS
@@ -232,9 +179,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
 
     // case MO_SYM:
-    //     #ifdef AUDIO_ENABLE
-    //       PLAY_SONG(blip_song);
-    //     #endif
     //   if (record->event.pressed) {
     //     layer_on(_SYM);
     //   } else {
@@ -256,21 +200,9 @@ void _reset(void) {
 // LEADER KEY 
 // 
 #ifdef LEADER_ENABLE
-
-#ifdef AUDIO_ENABLE
-float leader_start_song[][2] = SONG(ONE_UP_SOUND);
-float leader_succeed_song[][2] = SONG(ALL_STAR);
-float leader_fail_song[][2] = SONG(RICK_ROLL);
-float caps_start_song[][2] = SONG(MAJOR_SOUND);
-float caps_end_song[][2] = SONG(MINOR_SOUND);
-#endif
-
 bool did_leader_succeed;
 void leader_end_user(void) {
   bool did_leader_succeed = false;
-#ifdef AUDIO_ENABLE
-  PLAY_SONG(leader_start_song);
-#endif
 
   // Layer: default
   if(leader_sequence_two_keys(KC_L, KC_L)){
@@ -296,29 +228,15 @@ void leader_end_user(void) {
     did_leader_succeed = true;
   }
 
-#ifdef AUDIO_ENABLE
   if (did_leader_succeed) {
-      PLAY_SONG(leader_succeed_song);
-  } else {
-      PLAY_SONG(leader_fail_song);
-  }
-#endif
-
-  if (did_leader_succeed) {
-#ifdef RGB_MATRIX_ENABLE
     rgb_matrix_mode_noeeprom(RGB_MATRIX_ALPHAS_MODS);
-#endif
   } else {
-#ifdef RGB_MATRIX_ENABLE
     rgb_matrix_mode_noeeprom(RGB_MATRIX_BAND_PINWHEEL_SAT);
-#endif
   }
 }
 
 void leader_start_user(void) {
-#ifdef RGB_MATRIX_ENABLE
   rgb_matrix_mode_noeeprom(RGB_MATRIX_BAND_SPIRAL_VAL);
-#endif
 }
 
 #endif
