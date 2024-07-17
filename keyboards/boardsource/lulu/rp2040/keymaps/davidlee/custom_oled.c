@@ -16,10 +16,6 @@ void display_layer_state(void) {
     case _NAV:
       _render_layer3_logo();
       break;
-    // case _FUN:
-    // case _MED:
-    //   _render_layer4_logo();
-    //   break;
   }
 }
 
@@ -47,13 +43,6 @@ void render_status(void) {
     case _NAV:
       oled_write_ln_P(PSTR("NAV"), true);
       break;
-    // case _FUN:
-    //   oled_write_ln_P(PSTR("FUN"), true);
-    //   break;
-    // case _MED:
-    //   oled_write_ln_P(PSTR("MED"), true);
-      // break;
-     break;
   }
 
   // HRM

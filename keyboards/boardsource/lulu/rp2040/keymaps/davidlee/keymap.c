@@ -9,10 +9,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_GAL] = LAYOUT(
 // GALLIUM
 KC_GRV,   KC_1,    KC_2,    KC_3,  KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    QK_LEAD,
-TAB_HYP,  KC_B,    KC_L,    KC_D,  KC_C,    KC_V,                      KC_J,    KC_Y,    KC_O,    KC_U,    KC_COMM, DEL_HYP,
+TAB_HYP,  KC_B,    KC_L,    KC_D,  KC_C,    KC_V,                      KC_J,    KC_Y,    KC_O,    KC_U,    KC_COMM, BSL_HYP,
 ESC_MEH,  KC_N,    KC_R,    KC_T,  KC_S,    KC_G,                      KC_P,    KC_H,    KC_A,    KC_E,    KC_I,    SLS_MEH,
 FN,       KC_X,    KC_Q,    KC_M,  KC_W,    KC_Z,    ENC_B1,  ENC_B2,  KC_K,    KC_F,    KC_QUOT, KC_SCLN, KC_DOT,  ENT_SFT,
-                            FN,    CMD_TAB, SPC_NUM, NAV,     NAV,     BS_SFT,  KC_ENTER,   _______
+                            FN,    CMD_TAB, SPC_NUM, CMD_TAB, NAV,     BS_SFT,  KC_LBRC, KC_RBRC
   ),
     
   [_HRM] = LAYOUT(
@@ -25,9 +25,9 @@ _______, _______, _______, _______, _______, _______, _______, _______, _______,
 
   [_NUM] = LAYOUT(
 _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                     KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,   _______,
-_______, KC_GRV,  KC_MINUS,KC_EQUAL,KC_LT,   KC_LPRN,                   KC_RPRN, KC_GT,   KC_PIPE, KC_PLUS, KC_COMMA, _______,
+_______, KC_EXLM, KC_AT,   KC_HASH, KC_EQUAL,KC_LPRN,                   KC_RPRN, KC_AMPR, KC_ASTR, KC_MINS, KC_PLUS,  _______,
 _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,     _______,
-_______, KC_TILDE,KC_UNDS, KC_BSLS, KC_LCBR, KC_LBRC, _______, _______, KC_RBRC, KC_RCBR, KC_SLSH, KC_COLN, KC_DOT,   _______,
+_______, KC_GRV,  KC_UNDS, KC_BSLS, KC_LCBR, KC_LBRC, _______, _______, KC_RBRC, KC_RCBR, KC_SLSH, KC_COLN, KC_DOT,   _______,
                            _______, _______, _______, _______, KC_0,    _______, KC_DOT,  _______
   ),
 
