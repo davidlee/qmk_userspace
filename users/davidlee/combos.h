@@ -21,8 +21,8 @@ const uint16_t PROGMEM rbrc[]      = {KC_M, KC_W, COMBO_END};
 const uint16_t PROGMEM boot[]      = {KC_X, KC_DOT, COMBO_END};
 
 const uint16_t PROGMEM pause[]     = {KC_J, KC_Y, COMBO_END};
-const uint16_t PROGMEM vol_u[]     = {KC_J, KC_Y, COMBO_END};
-const uint16_t PROGMEM vol_d[]     = {KC_J, KC_Y, COMBO_END};
+const uint16_t PROGMEM vol_u[]     = {KC_H, KC_O, COMBO_END};
+const uint16_t PROGMEM vol_d[]     = {KC_O, KC_E, COMBO_END};
 // KC_MNXT KC_MPRV
 
 combo_t key_combos[COMBO_COUNT] = {
