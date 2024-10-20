@@ -7,6 +7,8 @@ enum userspace_keycodes {
   DEL_WORD,
   HRM_ON,  // ALPHA TAP / HOLD
   HRM_OFF,
+  GAM_LOCK,
+  RESET,
 };
 
 //
@@ -70,3 +72,4 @@ enum userspace_keycodes {
 #define DEL_MEH  MT(MOD_MEH,  KC_DEL)   
 #define BSL_HYP  MT(MOD_HYPR, KC_BACKSLASH)
 #define ENT_SFT  MT(MOD_RSFT, KC_ENTER)
+

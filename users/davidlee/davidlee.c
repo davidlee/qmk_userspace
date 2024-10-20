@@ -3,11 +3,22 @@
 #include "combos.h"
 
 #define LAYER_MASK_DEFAULT (1 << _GAL | 1 << _HRM)
+#define LAYER_MASK_GAM_LOCK (1 << _GAM)
 
 void keyboard_post_init_user(void) {
+  _reset();
+}
+
+void _reset(void) {
   default_layer_set(LAYER_MASK_DEFAULT); // BASE & HRM layers
-  oneshot_enable(); // should not be necessary but ... weird bug
+  layer_state_set(LAYER_MASK_DEFAULT);
+  oneshot_enable(); // this should not be necessary but ... weird bug
   rgb_matrix_mode(RGB_MATRIX_TYPING_HEATMAP);
+}
+
+void _gam_lock(void) {
+  default_layer_set(LAYER_MASK_GAM_LOCK);
+  layer_state_set(LAYER_MASK_GAM_LOCK);
 }
 
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
@@ -66,9 +77,13 @@ void caps_word_set_user(bool active) {
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
     case _NUM:
+      rgb_matrix_mode_noeeprom(RGB_MATRIX_PIXEL_FRACTAL);
+      break;
     case _NAV:
       rgb_matrix_mode_noeeprom(RGB_MATRIX_CYCLE_OUT_IN_DUAL);
       break;
+    case _GAM:
+      rgb_matrix_mode_noeeprom(RGB_MATRIX_PIXEL_FRACTAL);
     case _GAL:
     default:
       rgb_matrix_mode_noeeprom(RGB_MATRIX_TYPING_HEATMAP);
@@ -104,15 +119,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
 
+    case GAM_LOCK:
+      if (record->event.pressed) {
+        _gam_lock();
+      }
+      return false;
+      
+    case RESET:
+      if (record->event.pressed) {
+        _reset();
+      }
+      return false;
+      
     default:
       return true; /* Process all other keycodes normally */
   }
 }
 
-void _reset(void) {
-  default_layer_set(LAYER_MASK_DEFAULT);
-  layer_state_set(LAYER_MASK_DEFAULT);
-}
 
 // // 
 // // LEADER KEY 

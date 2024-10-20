@@ -23,6 +23,9 @@ const uint16_t PROGMEM boot[]      = {KC_X, KC_DOT, COMBO_END};
 const uint16_t PROGMEM pause[]     = {KC_J, KC_Y, COMBO_END};
 const uint16_t PROGMEM vol_u[]     = {KC_H, KC_O, COMBO_END};
 const uint16_t PROGMEM vol_d[]     = {KC_O, KC_E, COMBO_END};
+
+// const uint16_t PROGMEM layout_qty[]     = {KC_O, KC_E, COMBO_END};
+// const uint16_t PROGMEM layout_gal[]     = {KC_O, KC_E, COMBO_END};
 // KC_MNXT KC_MPRV
 
 combo_t key_combos[COMBO_COUNT] = {
@@ -45,4 +48,6 @@ combo_t key_combos[COMBO_COUNT] = {
 
 /* TODO 
 em dash
-*/
+media - >> | << | 
+ss.x
+htsnea.xx..xx..x.x.xxx.....x.x.x15151515`5`5`5bvbvbvbcbcbcbcsnsnsntrrtsxzxzxzxzzxxzxzxzzxzxqzqzqzxxxzzzzxxxxx.x..xx..x.x.x.x.x..x.x.x.x.*/

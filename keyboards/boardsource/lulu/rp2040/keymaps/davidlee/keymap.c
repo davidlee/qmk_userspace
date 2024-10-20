@@ -32,13 +32,21 @@ _______, KC_GRV,  KC_UNDS, KC_BSLS, KC_LCBR, KC_LBRC, _______, _______, KC_RBRC,
   ),
 
   [_NAV] = LAYOUT(
-_______, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,                    KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20, _______,
+_______, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,                    KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  GAM_LOCK,
 KC_TAB,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_WH_U, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_WH_U,
 KC_ESC,  KC_LCTL, KC_LOPT, KC_LCMD, KC_LSFT, XXXXXXX,                   KC_BSPC, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_DEL,
 KC_CAPS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, KC_WH_D, CMD_LBRC,CMD_MINS,CMD_EQL, CMD_RBRC,KC_WH_D,
                            _______, KC_TAB,  KC_SPC,  _______, _______, _______, _______, _______
   ),
 
+  [_GAM] = LAYOUT(
+KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    QK_LEAD,
+KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL,
+KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                      KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    _______, _______, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
+                           KC_LGUI, KC_LALT, KC_SPC,  KC_LCTL, NAV,     KC_BSPC, KC_ENT,  RESET
+  ),
+  
 };
 
 #ifdef ENCODER_ENABLE

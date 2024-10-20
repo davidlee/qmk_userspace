@@ -4,18 +4,19 @@
 void display_layer_state(void) {
   switch (get_highest_layer(layer_state)) {
     case _GAL:
-    case _GAM:
-      _render_logo();
-      break;
-    case _NUM:
       _render_layer1_logo();
       break;
-    case _PTR:
+    case _GAM:
       _render_layer2_logo();
       break;
     case _NAV:
       _render_layer3_logo();
       break;
+    case _NUM:
+      _render_layer4_logo();
+      break;
+    default:
+      _render_logo();
   }
 }
 
@@ -29,30 +30,23 @@ void render_status(void) {
 
   switch (get_highest_layer(layer_state)) {
     case _GAL:
-      oled_write_ln_P(PSTR("CMK"), false);
+      if(layer_state_cmp(layer_state, _HRM)){
+          oled_write_ln_P(PSTR("GAL(+)"), false);
+      } else {
+          oled_write_ln_P(PSTR("GAL   "), false);
+      }
       break;
     case _GAM:
-      oled_write_ln_P(PSTR("QTY"), true);
+      oled_write_ln_P(PSTR("QWE"), true);
       break;
     case _NUM:
-      oled_write_ln_P(PSTR("NUM"), true);
-      break;
-    case _PTR:
-      oled_write_ln_P(PSTR("PTR"), true);
+      oled_write_ln_P(PSTR("NUM"), false);
       break;
     case _NAV:
-      oled_write_ln_P(PSTR("NAV"), true);
+      oled_write_ln_P(PSTR("NAV"), false);
       break;
   }
 
-  // HRM
-
-  if(layer_state_cmp(layer_state, _HRM)){
-      oled_write_ln_P(PSTR("HRM"), true);
-  } else {
-      oled_write_ln_P(PSTR("   "), false);
-  }
-  
   // MODS
 
   oled_write_ln_P(PSTR("      "), false);

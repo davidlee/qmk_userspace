@@ -6,9 +6,9 @@ enum userspace_layers {
   _HRM,   // Home Row Mods / alpha hold-taps
   _GAM,   // Gaming / QWERTY
   _NUM,   // Numbers
-  _PTR,   // Pointer
   _NAV,   // Navigation
 };
 
 void _reset(void);
 bool _is_caps_lock_on(void);
+void _gam_lock(void);
