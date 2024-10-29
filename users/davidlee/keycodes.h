@@ -17,7 +17,7 @@ enum userspace_keycodes {
 
 // function keys remapped in Karabiner
 #define FN       KC_F24
-#define SIRI     KC_F21
+#define VOICE    KC_F21
 
 #define ENC_B1 QK_PROGRAMMABLE_BUTTON_5
 #define ENC_B2 QK_PROGRAMMABLE_BUTTON_6
