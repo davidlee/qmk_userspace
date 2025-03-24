@@ -24,7 +24,6 @@
 #define COMBO_TERM 20               
 // time to hold to trigger delayed combo
 #define COMBO_HOLD 30               
-#define COMBO_ONLY_FROM_LAYER 0
 
 #define CAPSWORD_USE_SHIFT 
 #define CAPS_WORD_IDLE_TIMEOUT 500  

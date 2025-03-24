@@ -1,7 +1,7 @@
 #pragma once
 
 //
-// Combos
+// Combos https://docs.qmk.fm/features/combo
 //
 
 const uint16_t PROGMEM bs_word[]   = {KC_H, KC_A,  COMBO_END};
@@ -9,9 +9,8 @@ const uint16_t PROGMEM del_word[]  = {KC_E, KC_I,  COMBO_END};
 const uint16_t PROGMEM caps_word[] = {KC_N, KC_R,  COMBO_END};
 
 const uint16_t PROGMEM enter[]     = {KC_QUOT, KC_SCLN, COMBO_END};
-const uint16_t PROGMEM enter2[]    = {KC_LBRC, KC_RBRC, COMBO_END};
 const uint16_t PROGMEM minus[]     = {KC_R, KC_T,       COMBO_END};
-const uint16_t PROGMEM under[]     = {KC_T, KC_S, COMBO_END};
+const uint16_t PROGMEM under[]     = {KC_T, KC_S,       COMBO_END};
 
 const uint16_t PROGMEM lprn[]      = {KC_L, KC_D, COMBO_END};
 const uint16_t PROGMEM rprn[]      = {KC_D, KC_C, COMBO_END};
@@ -24,9 +23,9 @@ const uint16_t PROGMEM pause[]     = {KC_J, KC_Y, COMBO_END};
 const uint16_t PROGMEM vol_u[]     = {KC_H, KC_O, COMBO_END};
 const uint16_t PROGMEM vol_d[]     = {KC_O, KC_E, COMBO_END};
 
-// const uint16_t PROGMEM layout_qty[]     = {KC_O, KC_E, COMBO_END};
-// const uint16_t PROGMEM layout_gal[]     = {KC_O, KC_E, COMBO_END};
-// KC_MNXT KC_MPRV
+// const uint16_t PROGMEM next_trk[]     = {KC_H, KC_O, COMBO_END};
+// const uint16_t PROGMEM prev_trk[]     = {KC_O, KC_E, COMBO_END};
+
 
 combo_t key_combos[COMBO_COUNT] = {
   COMBO(bs_word,    BS_WORD),
@@ -46,8 +45,3 @@ combo_t key_combos[COMBO_COUNT] = {
   COMBO(rprn,       KC_RPRN),
 };
 
-/* TODO 
-em dash
-media - >> | << | 
-ss.x
-htsnea.xx..xx..x.x.xxx.....x.x.x15151515`5`5`5bvbvbvbcbcbcbcsnsnsntrrtsxzxzxzxzzxxzxzxzzxzxqzqzqzxxxzzzzxxxxx.x..xx..x.x.x.x.x..x.x.x.x.*/
