@@ -1,9 +1,8 @@
 #pragma once
 
-#define LEADER_PER_KEY_TIMING
-#define LEADER_TIMEOUT 300
-
-#define COMBO_COUNT 15
+//
+// mod taps
+// 
 
 #define TAPPING_TERM 170
 #define TAPPING_TERM_PER_KEY 
@@ -17,37 +16,49 @@
 #define QUICK_TAP_TERM_PER_KEY 
 #define QUICK_TAP_TERM 30
 
+//
+// combos
+//
+
 #define COMBO_ALLOW_ACTION_KEYS
 #define COMBO_STRICT_TIMER
 
 // time to get all combo keys down - keep it short!
-#define COMBO_TERM 20               
+#define COMBO_TERM 20
 // time to hold to trigger delayed combo
-#define COMBO_HOLD 30               
+#define COMBO_HOLD 30
+
+//
+// caps word
+//
 
 #define CAPSWORD_USE_SHIFT 
 #define CAPS_WORD_IDLE_TIMEOUT 500  
 #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD 
-#define QMK_KEYS_PER_SCAN 4
 
+//
+// other
+// 
+
+#define QMK_KEYS_PER_SCAN 4
 #define DYNAMIC_MACRO_NO_NESTING 
 
-// MOUSE KEYS
-#define MK_3_SPEED
-#define MK_MOMENTARY_ACCEL
-//
-#define MK_C_OFFSET_0 5
-#define MK_C_OFFSET_1 10
-#define MK_C_OFFSET_UNMOD 20
-#define MK_C_OFFSET_2 40
-//
-#define MK_C_INTERVAL_UNMOD 16
-#define MK_C_INTERVAL_0 16
-#define MK_C_INTERVAL_1 16
-#define MK_C_INTERVAL_2 16
-//
-#define MK_W_OFFSET_UNMOD   1         
-#define MK_W_INTERVAL_UNMOD 20           
-#define MK_W_INTERVAL_0     60       
-#define MK_W_INTERVAL_1     40       
-#define MK_W_INTERVAL_2     10       
+// // MOUSE KEYS
+// #define MK_3_SPEED
+// #define MK_MOMENTARY_ACCEL
+// //
+// #define MK_C_OFFSET_0 5
+// #define MK_C_OFFSET_1 10
+// #define MK_C_OFFSET_UNMOD 20
+// #define MK_C_OFFSET_2 40
+// //
+// #define MK_C_INTERVAL_UNMOD 16
+// #define MK_C_INTERVAL_0 16
+// #define MK_C_INTERVAL_1 16
+// #define MK_C_INTERVAL_2 16
+// //
+// #define MK_W_OFFSET_UNMOD   1         
+// #define MK_W_INTERVAL_UNMOD 20           
+// #define MK_W_INTERVAL_0     60       
+// #define MK_W_INTERVAL_1     40       
+// #define MK_W_INTERVAL_2     10       
