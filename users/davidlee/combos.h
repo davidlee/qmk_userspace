@@ -6,7 +6,9 @@
 const uint16_t PROGMEM boot[]      = {KC_X, KC_DOT, COMBO_END};
 
 const uint16_t PROGMEM bs_word[]   = {KC_H, KC_A,  COMBO_END};
-const uint16_t PROGMEM del_word[]  = {KC_E, KC_I,  COMBO_END};
+const uint16_t PROGMEM ins[]       = {KC_U, KC_COMM, COMBO_END};
+const uint16_t PROGMEM del[]       = {KC_E, KC_I, COMBO_END};
+const uint16_t PROGMEM bs_word2[] = {KC_A, KC_E,  COMBO_END};
 const uint16_t PROGMEM caps_word[] = {KC_N, KC_R,  COMBO_END};
 
 const uint16_t PROGMEM enter[]     = {KC_QUOT, KC_SCLN, COMBO_END};
@@ -22,13 +24,15 @@ const uint16_t PROGMEM rbrc[]      = {KC_M, KC_W, COMBO_END};
 const uint16_t PROGMEM pause[]     = {KC_J, KC_Y, COMBO_END};
 const uint16_t PROGMEM vol_u[]     = {KC_H, KC_O, COMBO_END};
 const uint16_t PROGMEM vol_d[]     = {KC_O, KC_E, COMBO_END};
-const uint16_t PROGMEM prev_trk[]     = {KC_P, KC_Y, COMBO_END};
-const uint16_t PROGMEM next_trk[]     = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM prev_trk[]  = {KC_P, KC_Y, COMBO_END};
+const uint16_t PROGMEM next_trk[]  = {KC_U, KC_I, COMBO_END};
 
 combo_t key_combos[] = {
   COMBO(boot,       QK_BOOT),
-  COMBO(bs_word,    BS_WORD),
-  COMBO(del_word,   DEL_WORD),
+  COMBO(ins,        KC_INSERT),
+  COMBO(del,        KC_DELETE),
+  COMBO(bs_word,    A(KC_BSPC)), // macos, linux cli
+  COMBO(bs_word2,   C(KC_BSPC)), // linux gui
   COMBO(caps_word,  CAP_WRD),
   COMBO(enter,      KC_ENTER),
   COMBO(minus,      KC_MINUS),
@@ -40,7 +44,7 @@ combo_t key_combos[] = {
   COMBO(pause,      KC_MPLY),
   COMBO(vol_u,      KC_VOLU),
   COMBO(vol_d,      KC_VOLD),
-  COMBO(prev_trk,   KC_VOLD),
-  COMBO(next_trk,   KC_VOLD),
+  COMBO(prev_trk,   KC_MPRV),
+  COMBO(next_trk,   KC_MNXT),
 };
 

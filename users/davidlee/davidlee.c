@@ -57,19 +57,33 @@ void caps_word_set_user(bool active) {
     rgb_matrix_mode_noeeprom(RGB_MATRIX_ALPHAS_MODS);      
   } else {
     rgb_matrix_mode_noeeprom(RGB_MATRIX_TYPING_HEATMAP);
-  }
+  };
 }
 
+// bool led_update_user(led_t led_state) {
+//   // static uint8_t caps_state = 0;
+//   if (led_state.caps_lock) {
+//     // rgb_matrix_mode_noeeprom(ENABLE_RGB_MATRIX_RAINBOW_PINWHEELS);
+//     rgb_matrix_mode_noeeprom(ENABLE_RGB_MATRIX_TYPING_HEATMAP);
+//   } else {
+//     rgb_matrix_mode_noeeprom(ENABLE_RGB_MATRIX_TYPING_HEATMAP);
+//   };
+//   return true;
+// }
+
 layer_state_t layer_state_set_user(layer_state_t state) {
+    // bool caps = host_keyboard_led_state().caps_lock;
+    // 
     switch (get_highest_layer(state)) {
     case _NUM:
-      rgb_matrix_mode_noeeprom(RGB_MATRIX_PIXEL_FRACTAL);
+      // rgb_matrix_mode_noeeprom(ENABLE_RGB_MATRIX_CYCLE_PINWHEEL);
+      rgb_matrix_mode_noeeprom(RGB_MATRIX_CYCLE_OUT_IN_DUAL);
       break;
     case _NAV:
       rgb_matrix_mode_noeeprom(RGB_MATRIX_CYCLE_OUT_IN_DUAL);
       break;
     case _GAM:
-      rgb_matrix_mode_noeeprom(RGB_MATRIX_PIXEL_FRACTAL);
+      rgb_matrix_mode_noeeprom(RGB_MATRIX_BREATHING);
     case _GAL:
     default:
       rgb_matrix_mode_noeeprom(RGB_MATRIX_TYPING_HEATMAP);
@@ -90,18 +104,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case CAP_WRD:
       if (record->event.pressed) {
         caps_word_on();
-      }
-      return false;
-
-    case BS_WORD:
-      if (record->event.pressed) {
-        tap_code16(LOPT(KC_BSPC));
-      }
-      return false;
-
-    case DEL_WORD:
-      if (record->event.pressed) {
-        tap_code16(LOPT(KC_DELETE));
       }
       return false;
 

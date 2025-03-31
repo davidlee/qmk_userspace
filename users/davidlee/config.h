@@ -22,6 +22,8 @@
 
 #define COMBO_ALLOW_ACTION_KEYS
 #define COMBO_STRICT_TIMER
+// _COMBO_REF
+#define COMBO_ONLY_FROM_LAYER 0
 
 // time to get all combo keys down - keep it short!
 #define COMBO_TERM 20
@@ -42,23 +44,3 @@
 
 #define QMK_KEYS_PER_SCAN 4
 #define DYNAMIC_MACRO_NO_NESTING 
-
-// // MOUSE KEYS
-// #define MK_3_SPEED
-// #define MK_MOMENTARY_ACCEL
-// //
-// #define MK_C_OFFSET_0 5
-// #define MK_C_OFFSET_1 10
-// #define MK_C_OFFSET_UNMOD 20
-// #define MK_C_OFFSET_2 40
-// //
-// #define MK_C_INTERVAL_UNMOD 16
-// #define MK_C_INTERVAL_0 16
-// #define MK_C_INTERVAL_1 16
-// #define MK_C_INTERVAL_2 16
-// //
-// #define MK_W_OFFSET_UNMOD   1         
-// #define MK_W_INTERVAL_UNMOD 20           
-// #define MK_W_INTERVAL_0     60       
-// #define MK_W_INTERVAL_1     40       
-// #define MK_W_INTERVAL_2     10       
